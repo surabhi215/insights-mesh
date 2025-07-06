@@ -23,7 +23,9 @@ export const Home = () => {
     setShowModal(true);
   };
   useEffect(() => {
-    const th = JSON.parse(localStorage.getItem("theme") || "light");
+    const th = JSON.parse(
+      localStorage.getItem("theme") || JSON.stringify("light")
+    );
     if (th === "dark" && theme === "light") {
       handleThemeToggle();
     }
