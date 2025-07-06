@@ -32,6 +32,13 @@ export const Home = () => {
   }, []);
   useEffect(() => {
     localStorage.setItem("theme", JSON.stringify(theme));
+    if (document) {
+      const test = document.getElementById("__next");
+      if (test) {
+        test.style.height = "100vh";
+        test.style.background = theme === "dark" ? "#1a1a1a" : "#f9f9fb";
+      }
+    }
   }, [theme]);
 
   useEffect(() => {

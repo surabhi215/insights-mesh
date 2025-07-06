@@ -9,7 +9,7 @@ export default async function handler(
     const aiInstance = new GoogleGenAI({ apiKey: process.env.API_KEY });
     try {
       const { messages: chatMessages } = req.body;
-      const prompt = `Summarize the following chat conversation in under 150 words and provide a concise title for it:\n\n${chatMessages}\n\nSummary:\nTitle:`;
+      const prompt = `Summarize the following chat conversation in under 100 words and provide a concise title for it. Return both summary and title in separate. Chat:\n\n${chatMessages}\n\nSummary:\nTitle:`;
       if (!chatMessages) {
         return res.status(400).json({ error: "message is required" });
       }

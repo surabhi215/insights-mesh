@@ -1,15 +1,18 @@
-import React, { use, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Notes } from "./notes";
 import { useSelector } from "react-redux";
 import { RootState } from "@/libs/state/store";
+import styles from "@/styles/modal.module.css";
 import { ChatModalWithInput } from "../chat-modal/chat-modal";
 
 const NotesContainer = () => {
   const notes = useSelector((state: RootState) => state.notes);
+  const loading = useSelector((state: RootState) => state.loading);
   const [showModal, setShowModal] = useState(false);
   const [prevChat, setPrevChat] = useState([]);
   const [prevKey, setPrevKey] = useState("");
   const [currTitle, setCurrTitle] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const viewNote = (key: string, title: string) => {
     const localChats = localStorage.getItem("chats")
       ? JSON.parse(localStorage.getItem("chats") || "[]")
@@ -25,6 +28,10 @@ const NotesContainer = () => {
     setShowModal(false);
   };
 
+  useEffect(() => {
+    setIsLoading(loading);
+  }, [loading]);
+
   return (
     <>
       {showModal && (
@@ -35,6 +42,18 @@ const NotesContainer = () => {
           flowType="view"
           prevKey={prevKey}
         />
+      )}
+      {isLoading && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "8px",
+          }}
+        >
+          <div className={styles.loader}></div>
+        </div>
       )}
       <div
         style={{

@@ -1,6 +1,7 @@
 import styles from "@/styles/modal.module.css";
 import { useEffect, useRef, useState } from "react";
-import { addNote } from "@/libs/state/slices/notes";
+import { addNote, updateNote } from "@/libs/state/slices/notes";
+import { isLoading } from "@/libs/state/slices/loading";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchChatResponse } from "@/libs/utils/generateChats";
 import { generateSummary } from "@/libs/utils/generateSummary";
@@ -92,6 +93,7 @@ export const ChatModalWithInput = ({
   };
 
   const updateNotesSummary = async (key?: string) => {
+    dispatch(isLoading(true));
     const { summary, title } = await fetchSummary();
     const localNotes = localStorage.getItem("Notes")
       ? JSON.parse(localStorage.getItem("Notes") || "[]")
@@ -132,7 +134,17 @@ export const ChatModalWithInput = ({
           },
         ])
       );
+      dispatch(
+        updateNote([
+          {
+            title,
+            summary,
+            key: prevKey,
+          },
+        ])
+      );
     }
+    dispatch(isLoading(false));
   };
 
   const onCloseModal = () => {

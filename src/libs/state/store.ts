@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from "./slices/theme";
 import notesReducer from "./slices/notes";
+import loadingReducer from "./slices/loading";
 
 const store = configureStore({
   reducer: {
     theme: themeReducer,
     notes: notesReducer,
+    loading: loadingReducer,
   },
 });
 
