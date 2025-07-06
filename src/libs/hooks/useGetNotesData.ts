@@ -7,7 +7,6 @@ export const useGetNotesData = (): Array<Note> => {
     const localNotes = localStorage.getItem("Notes")
       ? JSON.parse(localStorage.getItem("Notes") || "[]")
       : [];
-    console.log("Local Notes in hook:", localNotes);
     if (localNotes.length > 0) {
       setNotes(localNotes);
     }

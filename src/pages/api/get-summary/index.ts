@@ -17,10 +17,8 @@ export default async function handler(
         model: "gemini-2.5-flash",
         contents: prompt,
       });
-      console.log("Response from AI:", response);
       res.status(200).json({ response });
     } catch (err) {
-      console.log(err);
       res.status(500).json({ error: "failed to load data" });
     }
 

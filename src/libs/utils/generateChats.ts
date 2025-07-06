@@ -1,4 +1,4 @@
-export const fetchChatResponse = async (payload) => {
+export const fetchChatResponse = async (payload: any) => {
   try {
     const res = await fetch("/api/send-message", {
       method: "POST",
@@ -14,7 +14,7 @@ export const fetchChatResponse = async (payload) => {
 
     const data = await res.json();
     return data;
-  } catch (err) {
+  } catch (err: any) {
     return {
       error:
         err.message || "An error occurred while fetching the chat response.",

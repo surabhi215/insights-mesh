@@ -1,11 +1,10 @@
-export const generateSummary = async (payload) => {
+export const generateSummary = async (payload: any) => {
   try {
-    console.log(payload, "generate summ");
     const messages = payload?.reduce(
-      (acc, curr) => acc + ` ${curr?.role}: ${curr?.parts?.[0]?.text}.\n`,
+      (acc: any, curr: any) =>
+        acc + ` ${curr?.role}: ${curr?.parts?.[0]?.text}.\n`,
       ""
     );
-    console.log(messages, "generate summ");
     const res = await fetch("/api/get-summary", {
       method: "POST",
       headers: {
@@ -20,7 +19,7 @@ export const generateSummary = async (payload) => {
 
     const data = await res.json();
     return data;
-  } catch (err) {
+  } catch (err: any) {
     return {
       error:
         err.message || "An error occurred while fetching the chat response.",

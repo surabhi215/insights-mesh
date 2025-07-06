@@ -14,7 +14,7 @@ const NotesContainer = () => {
     const localChats = localStorage.getItem("chats")
       ? JSON.parse(localStorage.getItem("chats") || "[]")
       : [];
-    const chat = localChats?.filter((chat) => chat.key === key);
+    const chat = localChats?.filter((chat: any) => chat.key === key);
     setPrevChat(chat?.[0]?.messages || []);
     setPrevKey(key);
     setCurrTitle(title);

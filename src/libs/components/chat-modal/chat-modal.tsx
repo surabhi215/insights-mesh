@@ -39,7 +39,6 @@ export const ChatModalWithInput = ({
   }, []);
 
   useEffect(() => {
-    console.log("Messages ref:", messageRef);
     if (messageRef.current) {
       messageRef.current.scrollTo({
         top: messageRef.current.scrollHeight,
@@ -65,7 +64,6 @@ export const ChatModalWithInput = ({
       userMessage,
     });
     setLoading(false);
-    console.log("Response from AI:", res);
     const aiMessage =
       res?.response?.candidates?.[0]?.content?.parts?.[0]?.text ||
       "No response from AI";
@@ -95,7 +93,6 @@ export const ChatModalWithInput = ({
 
   const updateNotesSummary = async (key?: string) => {
     const { summary, title } = await fetchSummary();
-    console.log({ summary, title });
     const localNotes = localStorage.getItem("Notes")
       ? JSON.parse(localStorage.getItem("Notes") || "[]")
       : [];
@@ -121,7 +118,9 @@ export const ChatModalWithInput = ({
         ])
       );
     } else if (flowType === "view") {
-      const filteredNotes = localNotes?.filter((note) => note.key !== prevKey);
+      const filteredNotes = localNotes?.filter(
+        (note: any) => note.key !== prevKey
+      );
       localStorage.setItem(
         "Notes",
         JSON.stringify([
@@ -158,7 +157,9 @@ export const ChatModalWithInput = ({
       const localChats = localStorage.getItem("chats")
         ? JSON.parse(localStorage.getItem("chats") || "[]")
         : [];
-      const filteredChats = localChats?.filter((chat) => chat.key !== prevKey);
+      const filteredChats = localChats?.filter(
+        (chat: any) => chat.key !== prevKey
+      );
       localStorage.setItem(
         "chats",
         JSON.stringify([

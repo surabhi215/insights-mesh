@@ -14,7 +14,6 @@ export default async function handler(
       if (!userMessage) {
         return res.status(400).json({ error: "User message is required" });
       }
-      console.log("Previous chat:", payload);
       const chat = aiInstance.chats.create({
         model: "gemini-2.5-flash",
         history: prevChat,
@@ -23,7 +22,6 @@ export default async function handler(
       const response = await chat.sendMessage({
         message: userMessage,
       });
-      console.log("Response from AI:", response);
       res.status(200).json({ response });
     } catch (err) {
       res.status(500).json({ error: "failed to load data" });
