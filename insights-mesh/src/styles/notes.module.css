@@ -1,0 +1,43 @@
+.notesContainer {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(60, 60, 60, 0.08);
+  padding: 24px;
+  width: 90%;
+  height: 150px;
+}
+
+.notesContainerDark {
+  background: #333;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(60, 60, 60, 0.08);
+  padding: 24px;
+  width: 90%;
+  height: 150px;
+}
+
+.notesContainer:hover {
+  box-shadow: 0 2px 12px rgba(60, 60, 60, 0.12);
+}
+
+.notesTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+.notesTitleDark {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.notesContent {
+  display: -webkit-box;
+  max-width: 100%;
+  height: 88%;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

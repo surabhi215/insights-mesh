@@ -7,8 +7,58 @@
 }
 
 .light {
-  background-color: #f2f5f9;
+  background-color: #f9f9fb;
   height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+.scrollbar:hover {
+  overflow-y: scroll;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 0.25rem;
+  scroll-margin-top: 50px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+.heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+.headingDark {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.subHeading {
+  font-size: 1.4rem;
+  color: #666;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.subHeadingDark {
+  font-size: 1.4rem;
+  color: #fff;
+  margin-top: 10px;
+  font-weight: bold;
 }

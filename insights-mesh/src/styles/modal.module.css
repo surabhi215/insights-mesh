@@ -1,0 +1,120 @@
+.chatModalContainer {
+  background: rgba(0, 0, 0, 0.4); /* light blue background */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  min-width: 100vw;
+  backdrop-filter: blur(2px);
+}
+
+.chatModalBody {
+  padding: 16px;
+  display: inline-flex;
+  flex-direction: column;
+  background: #f0f0f0;
+  justify-content: flex-start;
+  min-width: 50%;
+  min-height: 50%;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.chatModalBodyDark {
+  padding: 16px;
+  display: inline-flex;
+  flex-direction: column;
+  background: #333;
+  justify-content: flex-start;
+  min-width: 50%;
+  min-height: 50%;
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.chatModal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+.chatInput {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  padding: 8px;
+  border: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.chatInputDark {
+  width: 100%;
+  height: 50px;
+  border-radius: 8px;
+  background-color: #666;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.chatInputDark::placeholder {
+  color: #fff;
+}
+
+.sendButton {
+  background: #0074d9; /* blue button */
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.loader {
+  width: 40px;
+  margin: 2px;
+  margin-bottom: 4px;
+  padding: 2px;
+  aspect-ratio: 4;
+  --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 100%;
+  animation: l7 1s infinite linear;
+}
+@keyframes l7 {
+  33% {
+    background-size: calc(100% / 3) 0%, calc(100% / 3) 100%, calc(100% / 3) 100%;
+  }
+  50% {
+    background-size: calc(100% / 3) 100%, calc(100% / 3) 0%, calc(100% / 3) 100%;
+  }
+  66% {
+    background-size: calc(100% / 3) 100%, calc(100% / 3) 100%, calc(100% / 3) 0%;
+  }
+}
+
+.temp {
+  height: 40vh;
+  min-height: 40vh;
+  max-height: 40%;
+}
+
+.temp:hover {
+  overflow-y: scroll;
+}
+
+.temp::-webkit-scrollbar {
+  width: 0.25rem;
+  scroll-margin-top: 50px;
+}
+
+.temp::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.temp::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
