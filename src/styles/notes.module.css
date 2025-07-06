@@ -31,13 +31,14 @@
   font-weight: bold;
   color: #fff;
   margin-bottom: 8px;
+  overflow: hidden;
 }
 .notesContent {
   display: -webkit-box;
   max-width: 100%;
-  height: 88%;
-  -webkit-line-clamp: 7;
+  height: 80%;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
-  overflow: hidden;
+  overflow-y: scroll;
   text-overflow: ellipsis;
 }
