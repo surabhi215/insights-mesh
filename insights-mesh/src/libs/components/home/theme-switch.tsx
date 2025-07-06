@@ -1,6 +1,11 @@
+import { RootState } from "@/libs/state/store";
 import styles from "@/styles/theme.module.css";
+import { useSelector } from "react-redux";
 
 export const ThemeSwitch = ({ onChange }: { onChange: () => void }) => {
+  const theme = useSelector((state: RootState) => state.theme);
+  const isChecked = theme === "dark";
+
   const onChangeClick = () => {
     onChange();
   };
@@ -22,6 +27,7 @@ export const ThemeSwitch = ({ onChange }: { onChange: () => void }) => {
         </span>
         <input
           type="checkbox"
+          checked={isChecked}
           className={styles.input}
           onChange={onChangeClick}
         />
